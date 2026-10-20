@@ -1,32 +1,40 @@
-# 分发验收清单
+# 分发验收记录
 
-## 当前主机可直接验证
+验证日期：2026-10-20；版本：1.1.0。本记录更新了此前“缺少原生工具链、尚无安装包”的状态。
 
-- [x] `npm run doctor`：Node v24.17.0；Rust/Cargo、Java、Android SDK 与 Xcode 未安装，原生包需对应平台环境。
-- [x] `npm test`：12 个测试文件、59 项测试通过。
-- [x] `npm run build:release`：应用、PWA 与官网构建通过并生成 `release-site/`；当前没有真实原生包，downloads 为空。
-- [x] `npm run test:distribution`：桌面/手机布局、平台切换、完整 SHA256 展示、维护文档可达、无外部请求通过。
-- [x] `npm run test:release-script`：真实文件 SHA256 生成与路径穿越拒绝通过。
-- [x] `npm run test:e2e`：发布版真实图片映射、路线、色板、导出、备份恢复、离线重载和移动端缩放通过。
-- [x] `npm run test:features`：离线解释、路线快进/回退、滑动与批量标记、撤销、快捷键和移动端工作台布局通过。
-- [x] `npm audit`：0 vulnerabilities。
-- [ ] 在界面手动检查加密备份、错误密码、篡改文件与清空确认；自动化单元测试已覆盖加密和恢复校验。
+## 构建与文件
 
-## 目标平台设备验收
+- Windows：Rust/MSVC release 编译与 NSIS 打包成功，安装器 2,633,277 字节；另提供 11,552,256 字节的便携 EXE。
+- Android：JDK 21、Gradle 8.14.3、SDK 36 构建 `assembleRelease bundleRelease` 成功。直接安装 APK 7,062,264 字节；AAB 留在本机供商店发布。
+- APK：`apksigner verify --verbose --print-certs` 通过，APK Signature Scheme v2，RSA 3072 位。应用标识 `com.xingzi.beads`，versionCode 10100，最低 Android 7（API 24），目标 API 36，包含 arm64-v8a、armeabi-v7a、x86、x86_64。
+- 签名证书 SHA256：`7f6549b5c0fd1ef2cedb3fdba11382ae61e84d3959becd0b085c262bb6d4450c`。签名材料仅存本机私有目录，网站无私钥或密码。
+- Windows Authenticode 状态为 `NotSigned`，发布清单如实标注 `signed: false`。未配置静默原生自动更新；用户下载安装新版。
 
-- [ ] Windows 10 1809+ x64：安装、卸载前恢复、文件拖拽、Ctrl/Cmd+S/O、窗口尺寸记忆、Authenticode 签名/SmartScreen。
-- [ ] macOS 12+ Apple Silicon/Intel：DMG、签名公证、相机/文件导入、原生 updater。
-- [ ] Ubuntu 22.04+：AppImage/deb、WebKitGTK、Wayland/X11、保存对话框。
-- [ ] Android 7+：APK/AAB、相机/相册权限、返回键、旋转与安全区、系统分享、同签名覆盖更新。
-- [ ] iOS 15+：相机/照片用途说明、横竖屏、返回/导航、App Store/TestFlight Archive、PWA 添加到主屏幕。
+## 已通过的验证
 
-## 性能口径
+- `npm test`：13 个测试文件、63 项测试通过。
+- `npm run test:release-script`：真实文件 SHA256、路径穿越拒绝通过。
+- 应用、PWA、官网构建通过，发布清单包括 Windows 安装器、Windows 便携版、Android APK 三个真实文件。
+- `npm run test:e2e`：真实图片映射、Worker、路线、色板、编辑与进度持久化、PNG/CSV/PDF、备份恢复、离线重载、暗色模式和移动布局通过。
+- `npm run test:features`：离线解释、手势、快捷键、撤销、批量标记和移动工作台通过。
+- `npm run test:distribution`：官网桌面/移动布局、平台切换、完整 SHA256 展示与文档访问通过。
+- `npm run test:packages`：浏览器实际点击 Windows 和 Android 下载，核对下载大小及 SHA256；另核对便携 EXE，检查网页版入口可用，页面无 JavaScript 错误。此项使用真实发布清单，不模拟安装包。
+- Windows NSIS 实际安装到隔离验证目录，启动安装后的原生程序，WebView 正常渲染；原生 API 返回版本 1.1.0。随后执行静默卸载。
 
-在目标设备冷启动、无开发者工具、单次 50×50 与 100×100 图片转换分别记录 Worker `durationMs`；路线记录 planner `durationMs`。100×100 转换目标约 1 秒、路线约 2 秒是待目标设备验证的指标，不能用开发机测试结果替代。浏览器 DevTools Performance 和桌面 60fps 采样用于发现交互掉帧；不把“代码检查通过”写成性能保证。
+安装器内 EXE 与便携 EXE 有三个字节的差异，这是 Tauri 为 NSIS 设置安装包类型标记的结果；两者分别按各自分发文件的 SHA256 验证。
 
-## 隐私回归
+## 下载校验值
 
-- [ ] 页面请求只包含本地静态资源和用户主动点击的静态 version.json；无遥测、图片上传、账号或第三方 CDN。
-- [ ] 官网下载只返回静态包，不触发安装和原生权限。
-- [ ] Android 云备份/设备迁移明确排除应用数据库；iOS 隐私清单声明不收集数据。
-- [ ] 原生 updater endpoint 只接受 HTTPS、固定公钥和 Tauri `.sig`；普通 version.json 不能安装可执行文件。
+| 文件 | SHA256 |
+| --- | --- |
+| Windows 安装器 | `138f4b7e9530ddec40a9262af8e74e3523023b3f3b1414ac6a8f5e4ea06bb66b` |
+| Windows 便携版 | `d9383ef67fa47db1cbacc6b15a276cb7e861d7b0701109c007d22c19e6f76681` |
+| Android APK | `78d59ca50f1680f3c39a6860c77d70a42ba3db504dc56b060e0241110031f5c0` |
+
+公开网站：<https://1593106986-hash.github.io/xingzi-beads-downloads/>。线上验证使用 `TEST_URL` 指向此地址运行 `npm run test:packages`；需要检查 Pages 构建成功和线上实际下载的校验值，不能仅以“上传成功”代替。
+
+## 验证边界
+
+本机未连接 Android 真机，也没有已配置的模拟器，因此尚未进行手机安装、相机/相册授权、系统分享、返回键和覆盖更新的实机验收。Windows 已验证当前电脑上的安装、启动、界面和卸载；最低版本系统、全新无 WebView2 环境仍需独立设备验收。Windows 首次下载可能出现 SmartScreen 提示。
+
+macOS、Linux、iOS 不在本次安装包交付范围。性能指标需要在具体目标设备上测量，不能从浏览器测试推导手机或最低配置设备的速度。
