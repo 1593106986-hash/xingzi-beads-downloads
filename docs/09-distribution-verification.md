@@ -33,6 +33,8 @@
 
 公开网站：<https://1593106986-hash.github.io/xingzi-beads-downloads/>。线上验证使用 `TEST_URL` 指向此地址运行 `npm run test:packages`；需要检查 Pages 构建成功和线上实际下载的校验值，不能仅以“上传成功”代替。
 
+2026-10-20 21:57（北京时间）公网校验已通过：GitHub Pages 构建 `built`，网站 HTTP 200；`scripts/verify-online.mjs` 通过 HTTPS 分段下载并重组全部三个线上文件，完整字节数和 SHA256 与上表一致。当前网络的浏览器单连接大文件下载出现停顿，未计为完整线上浏览器验收通过；本地真实下载验收及公网完整文件校验均已通过。
+
 ## 验证边界
 
 本机未连接 Android 真机，也没有已配置的模拟器，因此尚未进行手机安装、相机/相册授权、系统分享、返回键和覆盖更新的实机验收。Windows 已验证当前电脑上的安装、启动、界面和卸载；最低版本系统、全新无 WebView2 环境仍需独立设备验收。Windows 首次下载可能出现 SmartScreen 提示。

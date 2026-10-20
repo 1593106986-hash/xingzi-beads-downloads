@@ -21,6 +21,8 @@ npm run deploy -- -SkipBuild
 
 部署命令先核对所有真实包的 SHA256，再上传 `release-site/` 并启用 GitHub Pages；需要当前账号对发布仓库的写权限以及 `gh` 登录或 `GH_TOKEN`。它不会上传源码目录或签名材料。发布后应等待 Pages 构建完成，并下载线上 APK/EXE 核对 `SHA256SUMS.txt`。未来版本需保留同一 Android 签名密钥及应用标识 `com.xingzi.beads`，同时递增版本号。
 
+网络阻止 Git HTTPS 推送时，部署命令会回退到已认证的 GitHub API；也可直接传入 `-UseApi`。公网文件校验可运行 `node scripts/verify-online.mjs`，通过 HTTPS Range 分段下载、重组并核对所有文件的完整 SHA256。可选参数为网站 URL 和指定解析 IP，TLS 仍校验真实域名。
+
 ## 先跑起来
 
 Windows 双击 `启动星子拼豆.cmd`，或执行：
