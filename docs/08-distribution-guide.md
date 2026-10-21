@@ -10,16 +10,26 @@ npm run desktop:build -- --bundles nsis
 node scripts/collect-native.mjs windows x64
 ```
 
-Android 命令生成正式签名的 APK 和 AAB，位于 `artifacts/packages/`；APK 可直接安装，AAB 用于应用商店。首次构建自动创建本机发布密钥，后续复用同一密钥。密钥和受 Windows DPAPI 保护的密码存于 `%LOCALAPPDATA%\XingziBeads\signing`，不会上传到网站或仓库。务必保留此目录；密码文件只能由原 Windows 用户/机器解密，迁移构建机器前需要在原机器安全导出签名凭据。不要把签名目录作为普通网站备份发布。
+Android 命令生成正式签名的 APK 和 AAB，位于 `artifacts/packages/`；APK 可直接安装，AAB 用于应用商店。构建默认只使用已备份的发布密钥；只有明确传入 `-CreateNewKey` 才会生成新密钥，避免误建新钥导致老用户无法覆盖安装。密钥和受 Windows DPAPI 保护的 credential 文件存于 `%LOCALAPPDATA%\XingziBeads\signing`，不会上传到网站或仓库。务必保留此目录；credential 文件只能由原 Windows 用户/机器解密。换机器前运行 `备份签名密钥.cmd`（或 `scripts/backup-signing.ps1`），把密钥、明文 `密码.txt` 和说明备份到安全位置，并确保备份目录不公开。不要把签名目录作为普通网站备份发布。
 
 收集 Windows 后，把 Android APK 条目合并到 `artifacts/release-input.json` 的 `downloads` 数组，设 `platform: "android"`、`arch: "universal"`、`kind: "apk"`、`signed: true`，`source` 指向真实 APK。Windows 的 NSIS 安装器与便携版目前没有 Authenticode 证书，必须保持 `signed: false`，首次运行可能出现 SmartScreen 提示。NSIS 会按需安装 WebView2 Runtime。
+
+日常更新官网直接双击 `更新官网.cmd`（桌面快捷方式 `3-更新官网.lnk`）。菜单有三项：
+
+1. 只重新生成：版本号不变，适合改样式或文案。
+2. 发布新版本：先改版本号和更新说明，再生成。
+3. 只上线现有 `release-site/`：不重新生成。
+
+生成完成后会询问是否直接上线，默认不上线。确认上线后会调用 `scripts/publish-github.ps1 -SkipBuild` 上传，并等待 GitHub Pages 生效、核对线上版本和主资源；Pages 构建失败时会自动重试一次。下载区安装包版本与当前版本不一致时会警告并默认取消，再次确认后才只更新网页/PWA。需要当前账号对发布仓库的写权限以及 `gh` 登录或 `GH_TOKEN`。
+
+也可以手动执行：
 
 ```powershell
 npm run build:release
 npm run deploy -- -SkipBuild
 ```
 
-部署命令先核对所有真实包的 SHA256，再上传 `release-site/` 并启用 GitHub Pages；需要当前账号对发布仓库的写权限以及 `gh` 登录或 `GH_TOKEN`。它不会上传源码目录或签名材料。发布后应等待 Pages 构建完成，并下载线上 APK/EXE 核对 `SHA256SUMS.txt`。未来版本需保留同一 Android 签名密钥及应用标识 `com.xingzi.beads`，同时递增版本号。
+部署命令先核对所有真实包的 SHA256，再上传 `release-site/` 并启用 GitHub Pages；它不会上传源码目录或签名材料。发布后应等待 Pages 构建完成，并下载线上 APK/EXE 核对 `SHA256SUMS.txt`。未来版本需保留同一 Android 签名密钥及应用标识 `com.xingzi.beads`，同时递增版本号。
 
 网络阻止 Git HTTPS 推送时，部署命令会回退到已认证的 GitHub API；也可直接传入 `-UseApi`。公网文件校验可运行 `node scripts/verify-online.mjs`，通过 HTTPS Range 分段下载、重组并核对所有文件的完整 SHA256。可选参数为网站 URL 和指定解析 IP，TLS 仍校验真实域名。
 

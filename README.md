@@ -11,7 +11,7 @@ npm ci
 npm run dev:all
 ```
 
-应用 `http://localhost:5173`，官网 `http://localhost:5174`。构建静态发布目录：`npm run build:release`，输出 `release-site/`。
+应用 `http://localhost:5173`，官网 `http://localhost:5174`。构建静态发布目录：`npm run build:release`，输出 `release-site/`。日常更新官网可双击 `更新官网.cmd`，生成后会询问是否直接上线；也可执行 `npm run deploy -- -SkipBuild`。
 
 ## 后续维护
 
