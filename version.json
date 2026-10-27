@@ -3,41 +3,9 @@
   "version": "2.0.0",
   "publishedAt": "2026-10-27",
   "notes": [
-    "大更新，最新版本问世"
+    "升级创作工作台，串联作品管理、图片转换、图纸编辑、色板、路线规划与逐豆制作。",
+    "完善移动端工作流程、作品进度记录与撤销重做。",
+    "支持清单、图纸和项目备份导出，可选密码加密并在其他设备恢复。"
   ],
-  "downloads": [
-    {
-      "id": "windows-x64-exe",
-      "platform": "windows",
-      "arch": "x64",
-      "kind": "installer",
-      "minSystem": "Windows 10 1809+ · WebView2 Runtime",
-      "signed": false,
-      "file": "downloads/xingzi-beads-1.1.0-windows-x64.exe",
-      "size": 2633277,
-      "sha256": "138f4b7e9530ddec40a9262af8e74e3523023b3f3b1414ac6a8f5e4ea06bb66b"
-    },
-    {
-      "id": "windows-x64-portable",
-      "platform": "windows",
-      "arch": "x64",
-      "kind": "portable",
-      "minSystem": "Windows 10 1809+ · WebView2 Runtime",
-      "signed": false,
-      "file": "downloads/xingzi-beads-1.1.0-windows-x64-portable.exe",
-      "size": 11552256,
-      "sha256": "d9383ef67fa47db1cbacc6b15a276cb7e861d7b0701109c007d22c19e6f76681"
-    },
-    {
-      "id": "android-universal-apk",
-      "platform": "android",
-      "arch": "universal",
-      "kind": "apk",
-      "minSystem": "Android 7.0+",
-      "signed": true,
-      "file": "downloads/xingzi-beads-1.1.0-android-universal.apk",
-      "size": 7062264,
-      "sha256": "78d59ca50f1680f3c39a6860c77d70a42ba3db504dc56b060e0241110031f5c0"
-    }
-  ]
+  "downloads": []
 }
