@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="星子拼豆隐私政策：了解照片与项目的本地处理、系统权限、联网与第三方组件、数据删除及联系方式。">
+  <title>隐私政策｜星子拼豆</title>
+  <style>
+    :root { color-scheme: light dark; --bg: #faf9f6; --paper: #fff; --text: #26332f; --muted: #626d66; --line: #dce2db; --accent: #365d47; }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 24px; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 16px; line-height: 1.85; overflow-wrap: anywhere; }
+    .page { max-width: 880px; margin: 0 auto; padding: 32px 24px 64px; }
+    a { color: var(--accent); text-underline-offset: 4px; }
+    a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+    .brand { display: inline-block; margin-bottom: 30px; font-weight: 650; text-decoration: none; }
+    main { padding: 40px 48px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; }
+    h1 { margin: 0 0 8px; font-size: clamp(28px, 5vw, 38px); line-height: 1.35; letter-spacing: -.03em; }
+    h2 { margin: 36px 0 12px; font-size: 21px; line-height: 1.5; }
+    p { margin: 12px 0; }
+    ul, ol { padding-left: 24px; }
+    li { margin: 8px 0; }
+    .meta, footer { color: var(--muted); font-size: 14px; }
+    .summary { margin-top: 24px; padding: 12px 20px; background: var(--bg); border-left: 3px solid var(--accent); }
+    .contents { padding: 16px 20px; border: 1px solid var(--line); border-radius: 8px; margin-top: 24px; }
+    .contents ol { margin-bottom: 0; }
+    .table-wrap { overflow-x: auto; margin: 16px 0; }
+    table { border-collapse: collapse; width: 100%; font-size: 14px; line-height: 1.75; }
+    caption { text-align: left; font-weight: 650; margin-bottom: 8px; }
+    th, td { border: 1px solid var(--line); padding: 12px; text-align: left; vertical-align: top; min-width: 110px; }
+    th { background: var(--bg); }
+    footer { margin-top: 24px; text-align: center; }
+    @media (max-width: 600px) { .page { padding: 20px 14px 40px; } main { padding: 26px 20px; } .brand { margin-bottom: 20px; } h2 { font-size: 19px; } }
+    @media (prefers-color-scheme: dark) { :root { --bg: #19221e; --paper: #222d27; --text: #e7ece8; --muted: #b2bfb5; --line: #425148; --accent: #afceb7; } }
+    @media print { :root { --bg: #fff; --paper: #fff; --text: #000; --muted: #333; --line: #bbb; --accent: #000; } .page { max-width: none; padding: 0; } main { border: 0; padding: 0; } .brand, .contents, footer { display: none; } h2 { break-after: avoid; } tr { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <a class="brand" href="./">星子拼豆 · 返回官网</a>
+    <main id="main-content">
+      <header>
+        <h1>星子拼豆隐私政策</h1>
+        <p class="meta">更新日期：2026年10月27日<br>生效日期：2026年10月27日</p>
+        <p>星子拼豆（以下简称“本应用”）由<strong>吴鑫庄</strong>（以下简称“我们”）开发和运营。我们尊重并保护您的个人信息。本政策说明您使用本应用时，信息如何被处理，以及您可以如何管理自己的数据。</p>
+        <p>本政策适用于星子拼豆 Android 应用（包括通过华为、小米等应用商店分发的版本），以及同名官网、浏览器 / PWA 和桌面版本。系统能力因平台而异，仅在您使用相应功能时适用。</p>
+        <div class="summary"><p><strong>核心说明：</strong>本应用不需要注册或登录。照片转换、颜色匹配、路线计算、项目与制作进度保存均在您的设备上完成。我们不通过本应用上传您的照片或项目，不接入广告、用户行为统计或追踪服务。访问官网、检查更新和主动分享文件涉及的联网或信息传输，详见下文。</p></div>
+      </header>
+
+      <nav class="contents" aria-label="隐私政策目录">
+        <strong>目录</strong>
+        <ol>
+          <li><a href="#information">我们处理哪些信息及其用途</a></li>
+          <li><a href="#permissions">系统权限与设备能力</a></li>
+          <li><a href="#network">联网、第三方组件与服务</a></li>
+          <li><a href="#sharing">信息共享、转让与公开披露</a></li>
+          <li><a href="#storage">信息存储、期限与保护</a></li>
+          <li><a href="#rights">您的权利与数据管理</a></li>
+          <li><a href="#children">未成年人保护</a></li>
+          <li><a href="#changes">本政策的更新</a></li>
+          <li><a href="#contact">联系我们</a></li>
+        </ol>
+      </nav>
+
+      <section id="information">
+        <h2>一、我们处理哪些信息及其用途</h2>
+        <p>我们遵循明确目的、最小必要的原则，仅为您选择的功能处理相关信息。<strong>在本机处理不等于向开发者上传。</strong>本应用没有接收照片、项目或制作记录的业务服务器。</p>
+        <ul>
+          <li><strong>您主动选择的图片及文件：</strong>包括导入的照片、拼豆图纸、色卡、色板文件及项目备份，以及文件名、文件类型等必要信息，用于解码、裁剪、生成拼豆图、提取颜色和恢复项目。图片中可能包含人像或其他个人信息；本应用不进行人脸识别、身份识别或人像信息提取，也不将图片用于模型训练。</li>
+          <li><strong>创作与制作数据：</strong>包括项目名称、原图、像素网格、色板、颜色用量、路线、完成标记、制作时长、导航历史和保存时间，用于编辑、保存、继续制作及导出备份，保存在本机。</li>
+          <li><strong>使用偏好：</strong>包括主题、界面与解释偏好、导航设置、安装提示和更新检查开关等，用于记住您的选择，保存在本机浏览器存储或应用数据区。我们不使用这些数据分析您的行为或建立用户画像。</li>
+          <li><strong>运行环境信息：</strong>官网或应用会在本机判断操作系统、浏览器、触控及网络可用状态，用于推荐安装包、适配功能和判断是否可检查更新，不以此生成持久设备标识或上传用户画像。</li>
+          <li><strong>您主动发送的反馈：</strong>当您通过邮件联系我们时，我们会接收您的邮箱地址、邮件内容及您主动附加的材料，用于回复咨询、处理隐私请求或排查您报告的问题。请仅提供与问题有关的信息。</li>
+        </ul>
+        <p>本应用不要求提供姓名、手机号、身份证、支付信息等注册资料，不主动读取通讯录、通话记录、短信、精确位置、麦克风录音、已安装应用列表、IMEI、IMSI、MAC 地址、Android ID、OAID 或广告标识符。我们不将个人信息用于定向广告或自动化商业决策。</p>
+      </section>
+
+      <section id="permissions">
+        <h2>二、系统权限与设备能力</h2>
+        <p>只有在您主动使用相应功能时，才会调用必要的系统能力。是否出现授权弹窗取决于系统、浏览器和版本；您可以拒绝授权、取消操作，或在系统设置中撤回授权。拒绝某项可选能力仅影响对应功能。</p>
+        <div class="table-wrap">
+          <table>
+            <caption>权限与设备能力使用说明</caption>
+            <thead><tr><th scope="col">能力或权限</th><th scope="col">触发与用途</th><th scope="col">处理范围与选择</th></tr></thead>
+            <tbody>
+              <tr><td>相机 / 系统拍照</td><td>您点击拍照导入时，用于拍摄制作拼豆图所需的照片。</td><td>Android 通过系统拍照界面调用相机，当前版本未声明直接访问相机的 CAMERA 权限；其他平台按系统规则授权。不在后台拍摄，不使用麦克风。取消后仍可选择已有图片。</td></tr>
+              <tr><td>系统照片选择 / 相册</td><td>您点击选择图片或色卡时，读取您选择的图片用于本机转换。</td><td>Android 优先使用系统照片选择或文件选择界面，当前版本未申请广泛读取相册的权限。不扫描或批量上传相册；其他平台按系统授权范围运行。</td></tr>
+              <tr><td>文件选择、保存与分享</td><td>您导入色板或备份、导出图片或备份时，读取指定文件或写入导出文件；主动分享时调用系统分享面板。</td><td>使用系统文件界面或应用自身目录；移动端分享可能在应用缓存目录生成临时导出文件。当前 Android 版本未申请所有文件访问权限，也未申请 READ_EXTERNAL_STORAGE / WRITE_EXTERNAL_STORAGE。接收方由您选择。</td></tr>
+              <tr><td>网络访问（INTERNET）</td><td>访问官网和隐私政策、检查版本、下载更新，以及浏览器版加载或更新网页资源时使用。</td><td>Android 普通网络权限通常不出现运行时授权弹窗。原生应用的本机创作功能可离线使用；“启动时检查静态版本清单”默认关闭，可自行开启或关闭。</td></tr>
+              <tr><td>剪贴板写入</td><td>您点击复制说明、校验和或命令时，写入您所选择的内容。</td><td>本应用不主动读取剪贴板已有内容；浏览器或系统可能按自身规则提示授权。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>当前 Android 构建还可能包含 AndroidX 自动加入的应用内部接收器签名权限（DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION），用于限制应用内部消息接收，不用于读取个人信息，也不需要您进行运行时授权。</p>
+      </section>
+
+      <section id="network">
+        <h2>三、联网、第三方组件与服务</h2>
+        <p><strong>本地功能：</strong>照片处理、颜色匹配、路线计算和数据存储不依赖云端图像接口。我们未集成广告、推送营销、行为分析、社交登录、支付或崩溃统计上报 SDK。</p>
+        <p><strong>官网与更新：</strong>当前官网、政策网页和静态版本清单托管于 GitHub Pages（服务提供方为 GitHub, Inc.）。您手动检查版本或开启启动检查时，应用会请求静态版本文件；该请求不附带图片、项目、账号或应用生成的设备标识，不携带登录凭据，并设置为不发送来源页信息。浏览器版首次访问及离线资源更新仍需要正常加载网页资源。</p>
+        <p>与普通网页访问相同，网络连接会向托管或下载服务暴露 IP 地址，请求还可能包含访问时间、资源路径及浏览器或系统自动生成的请求头。托管方可能为提供服务和保障安全处理相关访问日志；这不同于本应用上传作品。其处理地点、保存期限和保护规则由服务提供方决定，相关说明见 <a href="https://docs.github.com/zh/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub 通用隐私声明</a>。GitHub Pages 可能使用境外基础设施，因此访问官网、政策或更新源时产生的连接信息可能由境外设施处理；本机照片和项目不会因此上传。</p>
+        <div class="table-wrap">
+          <table>
+            <caption>与个人信息处理相关的第三方组件及服务</caption>
+            <thead><tr><th scope="col">名称与提供方</th><th scope="col">用途与触发方式</th><th scope="col">涉及的信息与说明</th></tr></thead>
+            <tbody>
+              <tr><td>Capacitor 及官方 App、Camera、Filesystem、Share、Browser 插件<br>Ionic 团队</td><td>移动端本地运行、应用生命周期及返回键处理；由您主动触发拍照、选图、导出、分享和打开网页。</td><td>在设备上处理所选图片、导出文件、应用状态或待打开的网址，不通过这些插件向 Ionic 上传照片或项目。对外分享和打开网站由您触发。<a href="https://capacitorjs.com/docs" target="_blank" rel="noopener noreferrer">组件说明</a></td></tr>
+              <tr><td>Android 系统组件 / AndroidX<br>Android 系统提供方及 Google / Android 开源项目</td><td>提供文件选择、系统拍照、应用界面与临时文件共享等基础能力。</td><td>处理为完成当前操作所必需的文件 URI、临时访问授权或系统状态。本应用不因此接入 Google 账号或分析服务；系统应用自身的数据处理适用其隐私说明。<a href="https://developer.android.com/jetpack/androidx" target="_blank" rel="noopener noreferrer">组件说明</a></td></tr>
+              <tr><td>GitHub Pages<br>GitHub, Inc.</td><td>提供官网、隐私政策、网页资源及静态版本清单。</td><td>可能处理上述网络访问数据；不接收本应用主动上传的图片或项目。访问官网或更新资源时才涉及。</td></tr>
+              <tr><td>Tauri 及官方文件、对话框、外部链接和更新插件<br>Tauri 项目团队</td><td>仅桌面版适用，提供本地保存、打开网页及发行者已配置时的签名更新。</td><td>本机处理您选定的文件路径和文件；访问网站或更新源时涉及普通网络连接信息。Android 版本不使用 Tauri。<a href="https://tauri.app/" target="_blank" rel="noopener noreferrer">组件说明</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>应用商店与外部应用：</strong>您通过华为、小米等应用商店下载、更新应用时，商店可能依其隐私政策处理账号、下载或设备信息。这些是商店自身的处理活动；本应用不因此获得您的商店账号信息。您点击外部链接或主动选择分享、云盘等服务后，接收方会按照其规则处理您发送的内容。</p>
+      </section>
+
+      <section id="sharing">
+        <h2>四、信息共享、转让与公开披露</h2>
+        <p>我们不出售、出租或用于交易您的个人信息，不向广告商、数据经纪商共享信息，不主动公开您的图片或作品。</p>
+        <p>您主动导出、复制或通过系统分享面板发送文件时，数据会交给您选择的接收方。<strong>备份可能包含原始图片、项目和制作进度，请确认接收方并按需启用备份加密。</strong>这些操作不代表开发者能够访问您的作品。</p>
+        <p>对于您主动通过邮件提供并由我们持有的信息，如确因法律法规、司法或行政机关依法提出的要求需要提供，我们将核验要求并仅在必要范围内处理。若未来发生涉及个人信息转移的运营变更，将依法告知接收方及联系方式，并要求接收方履行相应义务；改变处理目的或方式时，依法取得所需授权。</p>
+      </section>
+
+      <section id="storage">
+        <h2>五、信息存储、期限与保护</h2>
+        <ul>
+          <li><strong>存储位置：</strong>作品、原图、色板及进度存放于您设备的本地数据库；偏好存放于浏览器本地存储或应用数据区。不同设备、浏览器及网站来源的数据分别保存，不自动云同步。当前 Android 版本关闭了系统应用数据自动备份配置；设备或您自行使用的备份工具仍可能有独立行为。</li>
+          <li><strong>保存期限：</strong>本地数据通常保留至您删除项目、清空数据或系统回收存储空间。已导出的文件由您管理；移动端分享产生的临时文件可能保留在应用缓存目录，可通过系统清理缓存删除。卸载或清除应用数据可能造成不可恢复的丢失。</li>
+          <li><strong>反馈邮件：</strong>您主动发送的信息会在邮箱服务提供方的邮件系统中保存。我们仅在回复、处理请求或争议所需的期限内保留相关信息；处理结束后，不再需要的信息将删除或匿名化，法律要求保留的除外。您可通过下述邮箱提出删除请求。邮箱服务自身的存储与备份规则由其提供方决定。</li>
+          <li><strong>保护措施：</strong>应用利用操作系统及浏览器存储隔离机制；官网和版本检查使用 HTTPS。备份可选择在本机进行密码加密，密码不上传、不持久保存。未加密备份和本地项目数据不应视为已进行应用层加密，请保护设备、文件和密码。忘记加密密码时，我们无法为您找回。</li>
+        </ul>
+        <p>我们会采取与处理场景相适应的保护措施。若发生涉及我们持有个人信息的安全事件，将依法采取补救措施，并履行适用的通知和报告义务。</p>
+      </section>
+
+      <section id="rights">
+        <h2>六、您的权利与数据管理</h2>
+        <p>您可以通过以下方式访问、更正、复制、删除信息或改变授权：</p>
+        <ol>
+          <li><strong>查看与修改：</strong>在“我的项目”、编辑和色板等页面查看、编辑您保存在本机的作品和相关信息。</li>
+          <li><strong>导出与迁移：</strong>在“安装 / 关于 / 数据 → 数据与隐私”选择“导出全部数据”或“导出当前项目”，保存备份并在其他设备导入。您可以选择为备份设置密码。</li>
+          <li><strong>删除项目：</strong>在“我的项目”中删除不需要的项目。共享色板、其他项目以及已导出的副本可能仍然保留。</li>
+          <li><strong>清空本地数据：</strong>在“安装 / 关于 / 数据 → 数据与隐私”展开“清空这台设备上的本地数据”，输入“清空”并确认。此操作删除应用数据库中的项目、原图、色板、路线和进度，并重置相关偏好；不会删除已导出的文件或其他设备上的副本。如需删除所有应用缓存和剩余界面设置，可使用系统“清除应用数据”，或清除对应网站的全部存储。系统分享接收方持有的副本需向其另行删除。</li>
+          <li><strong>撤回授权与关闭联网检查：</strong>可在系统设置或浏览器网站设置中管理已授予的权限，在“关于与更新”关闭“启动时检查静态版本清单”。撤回授权不影响此前基于有效授权已进行的处理。</li>
+          <li><strong>账号注销：</strong>本应用没有注册和登录系统，不存在需要注销的应用账号；可通过上述方式删除本地数据并停止使用。</li>
+          <li><strong>联系我们：</strong>对于反馈邮件等我们实际持有的信息，您可以申请查阅、复制、更正、删除、撤回同意或解释处理规则。我们可能进行与请求相适应的必要身份核验，不会为处理请求要求无关的个人信息。</li>
+        </ol>
+        <p>由于我们无法访问您设备上的作品，不能远程代为恢复、修改或删除本地项目。我们会在收到您的联系后<strong>十五个工作日内</strong>回复或说明处理进展；如法律法规对特定请求另有规定，将按其执行。对处理结果有异议的，您可再次联系我们，或依法向有关个人信息保护部门投诉、通过司法途径维护权益。</p>
+      </section>
+
+      <section id="children">
+        <h2>七、未成年人保护</h2>
+        <p>未成年人应在监护人的指导下阅读本政策并使用本应用。<strong>不满十四周岁的儿童应在监护人同意和指导下使用。</strong>请监护人帮助管理图片、导出文件、权限及外部分享，避免发送含有儿童身份、住址、学校等不必要信息的材料。</p>
+        <p>本应用不主动识别或收集儿童身份信息，不为儿童建立画像。如果监护人认为儿童在未经有效同意的情况下向我们发送了个人信息，请通过下述邮箱联系我们。经必要核实后，我们将依法处理删除等请求。</p>
+      </section>
+
+      <section id="changes">
+        <h2>八、本政策的更新</h2>
+        <p>我们可能因功能变化或法律要求更新本政策，并在本页面标明更新及生效日期。涉及处理目的、处理方式、信息种类或权利行使方式等重大变化时，将通过应用内提示或其他适当方式告知；依法需要另行取得同意的，将在相关处理开始前取得同意，不以本政策更新本身替代您的授权。</p>
+      </section>
+
+      <section id="contact">
+        <h2>九、联系我们</h2>
+        <p>如您对本政策、个人信息处理或权利行使有疑问、意见或投诉，请通过以下方式联系：</p>
+        <p><strong>应用名称：</strong>星子拼豆<br><strong>开发者 / 运营者：</strong>吴鑫庄<br><strong>隐私联系邮箱：</strong><a href="mailto:1593106986@qq.com">1593106986@qq.com</a></p>
+        <p>建议邮件主题注明“星子拼豆隐私请求”，并简要说明问题与希望处理的事项。请勿在邮件中发送与请求无关的证件、密码或完整私人相册。</p>
+      </section>
+    </main>
+    <footer>星子拼豆 · 本机创作，本机保存<br><a href="./">返回官网</a> · <a href="#main-content">返回顶部</a></footer>
+  </div>
+</body>
+</html>
