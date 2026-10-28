@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="description" content="星子拼豆，本地拼豆辅助工作室。照片转像素、科学路线与逐豆制作。" />
+    <link rel="icon" href="./icon.svg" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <title>星子拼豆 · 拼豆工作室</title>
+    <style>/* The only source of application colors; loaded before first paint. */
+:root {
+  font-family:
+    "PingFang SC",
+    "Microsoft YaHei",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+  color: var(--text-primary);
+  background: var(--background);
+  font-synthesis: none;
+  color-scheme: light;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  --background: #f5f6f8;
+  --surface: #ffffff;
+  --surface-elevated: #ffffff;
+  --surface-soft: #f9fafb;
+  --overlay: rgba(255, 255, 255, 0.96);
+  --border: #75818d;
+  --divider: #eceef1;
+  --text-primary: #29323b;
+  --text-secondary: #68737f;
+  --text-disabled: #9aa4af;
+  --accent: #ad4938;
+  --accent-hover: #983e30;
+  --accent-soft: #fcf0ec;
+  --success: #3d754f;
+  --warning: #8c5c17;
+  --danger: #b14e42;
+  --shadow: 0 12px 35px rgba(36, 44, 59, 0.12);
+  --scrim: rgba(18, 24, 32, 0.48);
+  --canvas-bg: #f7f8fa;
+  --grid-line: rgba(93, 105, 118, 0.2);
+  --grid-line-major: rgba(93, 105, 118, 0.3);
+  --grid-margin: rgba(173, 73, 56, 0.07);
+  --cell-empty: #f7f8fa;
+  --cell-selected: rgba(65, 141, 175, 0.28);
+  --cell-done: rgba(246, 248, 250, 0.78);
+  --cell-next: rgba(199, 96, 76, 0.2);
+  --highlight: rgba(199, 96, 76, 0.2);
+  --text-on-accent: #ffffff;
+  --bead-highlight: rgba(255, 255, 255, 0.4);
+  --bead-shadow: rgba(20, 28, 36, 0.08);
+  --focus-ring: var(--accent);
+  --scrim-border: rgba(255, 255, 255, 0.6);
+  --skeleton: #e9edf1;
+  --checker-a: #e6e9ed;
+  --checker-b: #f7f8fa;
+
+  --success-soft: #eaf0ec;
+  --success-solid: #42674c;
+  --text-on-success: #ffffff;
+  --danger-soft: #fcf0ee;
+  --selection-stroke: #246e8a;
+  --selection-draft: rgba(65, 141, 175, 0.16);
+  --cell-muted: rgba(246, 248, 250, 0.88);
+  --data-label-light: #ffffff;
+  --data-label-dark: #101418;
+  --material-shadow: rgba(0, 0, 0, 0.12);
+  --illustration-1: #dcaca2;
+  --illustration-2: #d3a7a2;
+  --illustration-3: #b48e95;
+  --illustration-4: #729ca1;
+  --illustration-5: #85aaa9;
+  --illustration-6: #98b8b6;
+  /* Compatibility aliases for existing page styles. */
+  --bg: var(--background);
+  --canvas: var(--canvas-bg);
+  --text: var(--text-primary);
+  --muted: var(--text-secondary);
+  --subtle: var(--text-secondary);
+  --line: var(--border);
+  --sidebar: 216px;
+  --header: 70px;
+  --radius: 14px;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #151a20;
+  --surface: #1d242c;
+  --surface-elevated: #252e38;
+  --surface-soft: #222b34;
+  --overlay: rgba(37, 46, 56, 0.97);
+  --border: #6c7d8e;
+  --divider: #2d3742;
+  --text-primary: #edf2f6;
+  --text-secondary: #b2bdc8;
+  --text-disabled: #74808b;
+  --accent: #e9947f;
+  --accent-hover: #f2aa96;
+  --accent-soft: #3b2b2b;
+  --success: #9ed1aa;
+  --warning: #e2b46b;
+  --danger: #ee8b8b;
+  --shadow: 0 16px 40px rgba(0, 0, 0, 0.42);
+  --scrim: rgba(6, 10, 15, 0.66);
+  --canvas-bg: #202830;
+  --grid-line: rgba(171, 188, 204, 0.22);
+  --grid-line-major: rgba(171, 188, 204, 0.34);
+  --grid-margin: rgba(255, 255, 255, 0.055);
+  --cell-empty: #202830;
+  --cell-selected: rgba(90, 176, 211, 0.3);
+  --cell-done: rgba(13, 20, 27, 0.6);
+  --cell-next: rgba(239, 155, 134, 0.22);
+  --highlight: rgba(239, 155, 134, 0.22);
+  --text-on-accent: #241616;
+  --bead-highlight: rgba(255, 255, 255, 0.18);
+  --bead-shadow: rgba(0, 0, 0, 0.38);
+  --focus-ring: var(--accent);
+  --scrim-border: rgba(255, 255, 255, 0.18);
+  --skeleton: #2b353f;
+  --checker-a: #2a333d;
+  --checker-b: #202830;
+  --bg: var(--background);
+  --canvas: var(--canvas-bg);
+  --text: var(--text-primary);
+  --muted: var(--text-secondary);
+  --subtle: var(--text-secondary);
+  --line: var(--border);
+
+  --success-soft: #23362c;
+  --success-solid: #9ed1aa;
+  --text-on-success: #142219;
+  --danger-soft: #3d292d;
+  --selection-stroke: #8bceeb;
+  --selection-draft: rgba(90, 176, 211, 0.18);
+  --cell-muted: rgba(20, 27, 34, 0.82);
+  --data-label-light: #ffffff;
+  --data-label-dark: #101418;
+  --material-shadow: rgba(0, 0, 0, 0.4);
+  --illustration-1: #a97e74;
+  --illustration-2: #997770;
+  --illustration-3: #977986;
+  --illustration-4: #52797e;
+  --illustration-5: #648d8d;
+  --illustration-6: #729e9c;
+}
+</style>
+    <style>
+      html, body, #root { min-height: 100%; margin: 0; }
+      body { background: inherit; }
+    </style>
+    <script>
+      (() => {
+        let preference = 'system';
+        try {
+          const saved = localStorage.getItem('bead-theme');
+          if (['system', 'light', 'dark'].includes(saved)) preference = saved;
+          else localStorage.setItem('bead-theme', preference);
+        } catch { /* Follow system even when storage is blocked. */ }
+        const dark = preference === 'dark' || (preference === 'system' && window.matchMedia?.('(prefers-color-scheme: dark)').matches);
+        const root = document.documentElement;
+        root.dataset.theme = dark ? 'dark' : 'light';
+        root.style.colorScheme = root.dataset.theme;
+        document.querySelector('meta[name="theme-color"]').content = getComputedStyle(root).getPropertyValue('--background').trim();
+        document.querySelector('meta[name="apple-mobile-web-app-status-bar-style"]').content = dark ? 'black-translucent' : 'default';
+        const manifest = document.createElement('link');
+        manifest.rel = 'manifest';
+        manifest.href = './manifest-' + root.dataset.theme + '.webmanifest';
+        document.head.appendChild(manifest);
+      })();
+    </script>
+    <script type="module" crossorigin src="./assets/index-idQIBNez.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-qaICDL26.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
